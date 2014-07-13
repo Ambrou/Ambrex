@@ -17,16 +17,10 @@ import org.testng.annotations.Test;
  *
  * @author Mar_B_000
  */
-public class HelloWorldBuilderTest {
+public class AmbrexRecorderTest {
     
-    public HelloWorldBuilderTest() {
+    public AmbrexRecorderTest() {
     }
-
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    @Test
-    public void hello() {}
 
     @BeforeClass
     public static void setUpClass() throws Exception {
@@ -42,5 +36,11 @@ public class HelloWorldBuilderTest {
 
     @AfterMethod
     public void tearDownMethod() throws Exception {
+    }
+    
+    @Test
+    public void getDisplayName() {
+        AmbrexRecorder ambrexRecorder;
+        assertEquals("Ambrex !!!", ambrexRecoder.DescriptorImpl.getDisplayName());
     }
 }
