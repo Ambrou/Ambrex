@@ -26,8 +26,11 @@ public class AmbrexRecorderTest {
     // The methods must be annotated with annotation @Test. For example:
     //
     @Test
-    public void hello() {
-        assertEquals(1, 1);
+    public void getDisplayName() {
+        AmbrexRecorder.DescriptorImpl descriptor = new AmbrexRecorder.DescriptorImpl();
+        AmbrexRecorder ambrexRecorder = new AmbrexRecorder();
+        
+        assertEquals("Ambrex !!!", ambrexRecorder.getDescriptor().getDisplayName());
     }
 
     @BeforeClass
