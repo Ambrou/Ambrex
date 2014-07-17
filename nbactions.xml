@@ -12,16 +12,4 @@
                 <goal>hpi:run</goal>
             </goals>
         </action>
-        <action>
-            <actionName>test</actionName>
-            <packagings>
-                <packaging>*</packaging>
-            </packagings>
-            <goals>
-                <goal>test</goal>
-            </goals>
-            <properties>
-                <X></X>
-            </properties>
-        </action>
     </actions>

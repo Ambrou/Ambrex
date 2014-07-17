@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 
-
 package org.jenkinsci.plugins.Ambrex;
 
 import static org.testng.Assert.*;
@@ -16,11 +15,19 @@ import org.testng.annotations.Test;
 
 /**
  *
- * @author Mar_B_000
+ * @author apetitgenet
  */
 public class AmbrexRecorderTest {
     
     public AmbrexRecorderTest() {
+    }
+
+    // TODO add test methods here.
+    // The methods must be annotated with annotation @Test. For example:
+    //
+    @Test
+    public void hello() {
+        assertEquals(1, 1);
     }
 
     @BeforeClass
@@ -37,11 +44,5 @@ public class AmbrexRecorderTest {
 
     @AfterMethod
     public void tearDownMethod() throws Exception {
-    }
-    
-    @Test
-    public void getDisplayName() {
-        AmbrexRecorder ambrexRecorder = new AmbrexRecorder();
-        assertEquals("Ambrex !!!", ambrexRecorder.getDescriptor().getDisplayName());
     }
 }

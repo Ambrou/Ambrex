@@ -18,9 +18,9 @@
     </test>
     -->
     
-    <test name="org.jenkinsci.plugin.Ambrex suite">
+    <test name="org.jenkinsci.plugins.Ambrex suite">
         <packages>
-            <package name="org.jenkinsci.plugin.Ambrex"/>
+            <package name="org.jenkinsci.plugins.Ambrex"/>
         </packages>
     </test>
 
