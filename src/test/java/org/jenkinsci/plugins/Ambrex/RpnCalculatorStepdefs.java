@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package org.jenkinsci.plugins.Ambrex;
 
 import cucumber.api.Scenario;
@@ -15,12 +9,8 @@ import cucumber.api.java.en.When;
 
 import java.util.List;
 
-import static org.testng.Assert.assertEquals;
+import static org.junit.Assert.assertEquals;
 
-/**
- *
- * @author apetitgenet
- */
 public class RpnCalculatorStepdefs {
     private RpnCalculator calc;
 

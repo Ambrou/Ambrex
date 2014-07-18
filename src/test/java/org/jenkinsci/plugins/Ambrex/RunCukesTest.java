@@ -7,13 +7,15 @@
 package org.jenkinsci.plugins.Ambrex;
 
 import cucumber.api.CucumberOptions;
-import cucumber.api.testng.AbstractTestNGCucumberTests;
+import cucumber.api.junit.Cucumber;
+import org.junit.runner.RunWith;
 
 /**
  *
  * @author apetitgenet
  */
-@CucumberOptions(format = "json:target/cucumber-report.json")
-public class RunCukesTest extends AbstractTestNGCucumberTests {
-    
+@RunWith(Cucumber.class)
+@CucumberOptions(format = "json:target/cucumber-report.json", dotcucumber = ".cucumber")
+public class RunCukesTest {
 }
+
