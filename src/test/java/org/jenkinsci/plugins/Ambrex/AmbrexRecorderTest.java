@@ -27,13 +27,12 @@ public class AmbrexRecorderTest {
     public void first() throws Exception {
         FreeStyleProject project = j.createFreeStyleProject();
         project.getBuildersList().add(new Shell("echo hello"));
-        FreeStyleBuild build = project.scheduleBuild2(0).get();
+       /* FreeStyleBuild build = project.scheduleBuild2(0).get();
         System.out.println(build.getDisplayName() + " completed!!!");
         
         // TODO: change this to use HtmlUnit
-        String s = FileUtils.readFileToString(build.getLogFile());
+        String s = FileUtils.readFileToString(build.getLogFile());*/
         
-        System.out.println(s);
         //assertThat(s, containsString("+ echo hello"));
     }
     
