@@ -36,12 +36,12 @@
   </pluginRepositories>
   
     <dependencies>
-        <dependency>
+         <!-- <dependency>
             <groupId>info.cukes</groupId>
             <artifactId>cucumber-jvm-deps</artifactId>
             <version>1.0.3</version>
             <scope>test</scope>
-        </dependency>
+        </dependency> -->
         <dependency>
             <groupId>info.cukes</groupId>
             <artifactId>cucumber-java</artifactId>
@@ -55,28 +55,89 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>info.cukes</groupId>
-            <artifactId>cucumber-core</artifactId>
-            <version>1.1.8</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>info.cukes</groupId>
-            <artifactId>cucumber-html</artifactId>
-            <version>0.2.3</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>info.cukes</groupId>
-            <artifactId>gherkin</artifactId>
-            <version>2.12.2</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.11</version>
             <scope>test</scope>
         </dependency>
+        <!-- get every artifact through repo.jenkins-ci.org, which proxies all the artifacts that we need 
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-core</artifactId>
+            <version>1.1.8</version>
+            <scope>test</scope>
+        </dependency> -->
+         <!-- <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-html</artifactId>
+            <version>0.2.3</version>
+            <scope>test</scope>
+        </dependency> -->
+         <!-- <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>gherkin</artifactId>
+            <version>2.12.2</version>
+            <scope>test</scope>
+        </dependency> -->
+        <!-- <dependency>
+            <groupId>org.kohsuke</groupId>
+            <artifactId>cucumber-annotation-indexer</artifactId>
+            <version>1.2</version>
+        </dependency> -->
+        <!-- 
+        <dependency>
+            <groupId>org.jenkins-ci</groupId>
+            <artifactId>acceptance-test-harness</artifactId>
+            <version>1.10</version>
+            <scope>test</scope>
+        </dependency> 
+       <dependency>
+	<groupId>org.jbehave</groupId>
+	<artifactId>jbehave-core</artifactId>
+	<version>3.9.3</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+    <groupId>de.codecentric</groupId>
+    <artifactId>jbehave-junit-runner</artifactId>
+    <version>1.1.2</version>
+</dependency>-->
+
       </dependencies>
+      
+      <build>
+          <plugins>
+      <plugin>
+    <groupId>org.jbehave</groupId>
+    <artifactId>jbehave-maven-plugin</artifactId>
+    <version>3.9.3</version>
+    <executions>
+        <execution>
+            <id>run-stories-as-embeddables</id>
+            <phase>integration-test</phase>
+            <configuration>
+                <includes>
+                    <include>**/*Stories.java</include>
+                </includes>
+                <metaFilters>
+                    <metaFilter>+author *</metaFilter>
+                    <metaFilter>-skip</metaFilter>
+                </metaFilters>
+                <systemProperties>
+                    <property>
+                      <name>java.awt.headless</name>
+                      <value>true</value>
+                    </property>
+                </systemProperties>
+                <ignoreFailureInStories>true</ignoreFailureInStories>
+                <ignoreFailureInView>false</ignoreFailureInView>
+            </configuration>
+            <goals>
+                <goal>run-stories-as-embeddables</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
+</plugins>
+</build>
 </project>

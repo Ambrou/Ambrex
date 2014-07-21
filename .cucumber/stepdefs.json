@@ -1,48 +1,11 @@
 [
   {
-    "steps": [
-      {
-        "name": "I add 4 and 5",
-        "args": [
-          {
-            "offset": 6,
-            "val": "4"
-          },
-          {
-            "offset": 12,
-            "val": "5"
-          }
-        ]
-      },
-      {
-        "name": "I add 4 and 7",
-        "args": [
-          {
-            "offset": 6,
-            "val": "4"
-          },
-          {
-            "offset": 12,
-            "val": "7"
-          }
-        ]
-      }
-    ],
+    "steps": [],
     "source": "^I add (\\d+) and (\\d+)$",
     "flags": ""
   },
   {
-    "steps": [
-      {
-        "name": "I press +",
-        "args": [
-          {
-            "offset": 8,
-            "val": "+"
-          }
-        ]
-      }
-    ],
+    "steps": [],
     "source": "^I press (.+)$",
     "flags": ""
   },
@@ -54,34 +17,60 @@
   {
     "steps": [
       {
-        "name": "the previous entries:",
+        "name": "l\u0027erreur sont:",
         "args": []
       }
     ],
-    "source": "^the previous entries:$",
+    "source": "^l\u0027erreur sont:$",
     "flags": ""
   },
   {
     "steps": [
       {
-        "name": "the result is 11",
-        "args": [
-          {
-            "offset": 14,
-            "val": "11"
-          }
-        ]
-      },
-      {
-        "name": "the result is 9",
-        "args": [
-          {
-            "offset": 14,
-            "val": "9"
-          }
-        ]
+        "name": "le build est en erreur",
+        "args": []
       }
     ],
+    "source": "^le build est en erreur$",
+    "flags": ""
+  },
+  {
+    "steps": [
+      {
+        "name": "le fichier amont fichier-ESG.agex contenant:",
+        "args": []
+      }
+    ],
+    "source": "^le fichier amont fichier-ESG\\.agex contenant:$",
+    "flags": ""
+  },
+  {
+    "steps": [
+      {
+        "name": "le fichier aval fichier-ESD.agex contenant:",
+        "args": []
+      }
+    ],
+    "source": "^le fichier aval fichier-ESD\\.agex contenant:$",
+    "flags": ""
+  },
+  {
+    "steps": [
+      {
+        "name": "le plugin analyse ces deux fichiers",
+        "args": []
+      }
+    ],
+    "source": "^le plugin analyse ces deux fichiers$",
+    "flags": ""
+  },
+  {
+    "steps": [],
+    "source": "^the previous entries:$",
+    "flags": ""
+  },
+  {
+    "steps": [],
     "source": "^the result is (\\d+)$",
     "flags": ""
   }
