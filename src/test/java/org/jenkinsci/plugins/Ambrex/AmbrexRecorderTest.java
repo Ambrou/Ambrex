@@ -26,7 +26,6 @@ import org.jvnet.hudson.test.JenkinsRule;
  * @author apetitgenet
  */
 
-@RunWith(JUnit4.class)
 public class AmbrexRecorderTest {
     
     @Rule 
@@ -55,6 +54,12 @@ public class AmbrexRecorderTest {
     public void getDisplayName() throws Exception {
         AmbrexRecorder ambrexRecorder = new AmbrexRecorder();
         assertEquals("Ambrex !!!", ambrexRecorder.getDescriptor().getDisplayName());
+    }
+    
+    @Test 
+    public void getDisplayName2() throws Exception {
+        AmbrexRecorder ambrexRecorder = new AmbrexRecorder();
+        assertEquals("Ambrex2 !!!", ambrexRecorder.getDescriptor().getDisplayName());
     }
     
 }

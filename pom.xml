@@ -36,12 +36,12 @@
   </pluginRepositories>
   
     <dependencies>
-         <!-- <dependency>
+         <dependency>
             <groupId>info.cukes</groupId>
             <artifactId>cucumber-jvm-deps</artifactId>
             <version>1.0.3</version>
             <scope>test</scope>
-        </dependency> -->
+        </dependency>
         <dependency>
             <groupId>info.cukes</groupId>
             <artifactId>cucumber-java</artifactId>
@@ -54,12 +54,33 @@
             <version>1.1.8</version>
             <scope>test</scope>
         </dependency>
+        
         <dependency>
+            <groupId>org.jbehave</groupId>
+            <artifactId>jbehave-core</artifactId>
+            <version>3.9.3</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.thoughtworks.xstream</groupId>
+                    <artifactId>xstream</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.googlecode.java-diff-utils</groupId>
+                    <artifactId>diffutils</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.jbehave</groupId>
+            <artifactId>jbehave-maven-plugin</artifactId>
+            <version>3.9.3</version>
+        </dependency>
+        <!-- <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.11</version>
             <scope>test</scope>
-        </dependency>
+        </dependency>-->
         <!-- get every artifact through repo.jenkins-ci.org, which proxies all the artifacts that we need 
         <dependency>
             <groupId>info.cukes</groupId>
@@ -104,7 +125,7 @@
 </dependency>-->
 
       </dependencies>
-      
+    <!--   
       <build>
           <plugins>
       <plugin>
@@ -139,5 +160,5 @@
     </executions>
 </plugin>
 </plugins>
-</build>
+</build>-->
 </project>

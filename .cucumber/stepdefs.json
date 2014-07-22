@@ -1,77 +1,27 @@
 [
   {
     "steps": [],
-    "source": "^I add (\\d+) and (\\d+)$",
-    "flags": ""
-  },
-  {
-    "steps": [],
-    "source": "^I press (.+)$",
-    "flags": ""
-  },
-  {
-    "steps": [],
-    "source": "^a calculator I just turned on$",
-    "flags": ""
-  },
-  {
-    "steps": [
-      {
-        "name": "l\u0027erreur sont:",
-        "args": []
-      }
-    ],
     "source": "^l\u0027erreur sont:$",
     "flags": ""
   },
   {
-    "steps": [
-      {
-        "name": "le build est en erreur",
-        "args": []
-      }
-    ],
+    "steps": [],
     "source": "^le build est en erreur$",
     "flags": ""
   },
   {
-    "steps": [
-      {
-        "name": "le fichier amont fichier-ESG.agex contenant:",
-        "args": []
-      }
-    ],
+    "steps": [],
     "source": "^le fichier amont fichier-ESG\\.agex contenant:$",
     "flags": ""
   },
   {
-    "steps": [
-      {
-        "name": "le fichier aval fichier-ESD.agex contenant:",
-        "args": []
-      }
-    ],
+    "steps": [],
     "source": "^le fichier aval fichier-ESD\\.agex contenant:$",
     "flags": ""
   },
   {
-    "steps": [
-      {
-        "name": "le plugin analyse ces deux fichiers",
-        "args": []
-      }
-    ],
+    "steps": [],
     "source": "^le plugin analyse ces deux fichiers$",
-    "flags": ""
-  },
-  {
-    "steps": [],
-    "source": "^the previous entries:$",
-    "flags": ""
-  },
-  {
-    "steps": [],
-    "source": "^the result is (\\d+)$",
     "flags": ""
   }
 ]

@@ -22,7 +22,7 @@ public class RunCukesTest {
 */
 
 
-import de.codecentric.jbehave.junit.monitoring.JUnitReportingRunner;
+/*import de.codecentric.jbehave.junit.monitoring.JUnitReportingRunner;
 import java.text.SimpleDateFormat;
 import static java.util.Arrays.asList;
 import java.util.List;
@@ -55,22 +55,30 @@ import org.jbehave.core.steps.ParameterConverters;
 import org.jbehave.core.steps.ParameterConverters.DateConverter;
 import org.jbehave.core.steps.ParameterConverters.ExamplesTableConverter;
 import org.junit.runner.RunWith;
+*/
+
+
+import cucumber.api.CucumberOptions;
+import cucumber.api.junit.Cucumber;
+import org.junit.runner.RunWith;
 
 //@RunWith(JUnitReportingRunner.class)
 //public class AllStoriesTest extends JUnitStories {
-@RunWith(JUnitReportingRunner.class)
-public class RunCukesTest extends JUnitStories {
+//@RunWith(JUnitReportingRunner.class)
+@RunWith(Cucumber.class)
+@CucumberOptions(format = "json:target/cucumber-report.json", dotcucumber = ".cucumber")
+public class RunCukesTest { //extends JUnitStories {
  
-     private final CrossReference xref = new CrossReference();
- 
-    public void TraderStories() {
-        configuredEmbedder().embedderControls().doGenerateViewAfterStories(true).doIgnoreFailureInStories(false)
-                .doIgnoreFailureInView(true).doVerboseFailures(true).useThreads(2).useStoryTimeoutInSecs(60);
+  //   private final CrossReference xref = new CrossReference();
+ //
+   // public void TraderStories() {
+     //   configuredEmbedder().embedderControls().doGenerateViewAfterStories(true).doIgnoreFailureInStories(false)
+       //         .doIgnoreFailureInView(true).doVerboseFailures(true).useThreads(2).useStoryTimeoutInSecs(60);
         //configuredEmbedder().useEmbedderControls(new PropertyBasedEmbedderControls());
-    }
+   // }
  
-    @Override
-    public Configuration configuration() {
+   // @Override
+    /*public Configuration configuration() {
         Class<? extends Embeddable> embeddableClass = this.getClass();
         Properties viewResources = new Properties();
         viewResources.put("decorateNonHtml", "true");
@@ -104,13 +112,13 @@ public class RunCukesTest extends JUnitStories {
     public InjectableStepsFactory stepsFactory() {
         return new InstanceStepsFactory(configuration(), new RpnCalculatorStepTest());
     }
-     
-    @Override
-    protected List<String> storyPaths() {
-        // Specify story paths as URLs
-        String codeLocation = codeLocationFromClass(this.getClass()).getFile();
-        return new StoryFinder().findPaths(codeLocation, asList("**/trader_is_alerted_of_status.story",
-                "**/traders_can_be_subset.story"), asList(""), "file:" + codeLocation);
-    }
+     */
+  //  @Override
+//    protected List<String> storyPaths() {
+  //      // Specify story paths as URLs
+    //    String codeLocation = codeLocationFromClass(this.getClass()).getFile();
+      //  return new StoryFinder().findPaths(codeLocation, asList("**/trader_is_alerted_of_status.story",
+        //        "**/traders_can_be_subset.story"), asList(""), "file:" + codeLocation);
+   // }
     
 }

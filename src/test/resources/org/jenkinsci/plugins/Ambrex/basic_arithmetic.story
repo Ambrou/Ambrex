@@ -1,7 +1,4 @@
-@foo
-Feature: Basic Arithmetic
-
-  Scenario: Erreur d'exigence amont sous couverte
+Scenario: Erreur d'exigence amont sous couverte
     Given le fichier amont fichier-ESG.agex contenant:
       | reqID | titre | ver | exigenceAmont                     | categorie      | criticite     | impact | stabilite  | verif  | texte     | commentaire    | statut  | dateStatut  |
       | ESG01 |   t1  |  0  | Feature_1222 (T) Feature_5222 (P) | Maintenabilité | Indispensable | Faible | Importante | Tests  | blablabla |                | Validée | 18/06/2014  |
