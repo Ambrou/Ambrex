@@ -35,7 +35,7 @@ import org.jbehave.core.steps.SilentStepMonitor;
  * @author apetitgenet
  */
 public class TraderEmbedder extends Embedder {
-    
+   /* 
     @Override
     public EmbedderControls embedderControls() {
         return new EmbedderControls().doIgnoreFailureInStories(true).doIgnoreFailureInView(true);
@@ -61,5 +61,15 @@ public class TraderEmbedder extends Embedder {
     @Override
     public InjectableStepsFactory stepsFactory() {
         return new InstanceStepsFactory(configuration(), new StepjBehave());
+    }*/
+    
+    
+    @Override  public Configuration configuration() {
+        return new MostUsefulConfiguration();
+    }
+    
+    @Override public InjectableStepsFactory stepsFactory() {
+        return new InstanceStepsFactory(configuration(),
+                new BaconCookingSteps());
     }
 }
