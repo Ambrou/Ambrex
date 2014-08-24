@@ -11,6 +11,7 @@ import java.util.List;
 import org.jbehave.core.configuration.Configuration;
 import org.jbehave.core.configuration.MostUsefulConfiguration;
 import org.jbehave.core.embedder.StoryControls;
+import org.jbehave.core.failures.FailingUponPendingStep;
 import org.jbehave.core.io.StoryFinder;
 import org.jbehave.core.junit.JUnitStory;
 import org.jbehave.core.steps.InjectableStepsFactory;
@@ -23,7 +24,7 @@ import org.jbehave.core.steps.InstanceStepsFactory;
 public class CookBaconStory extends JUnitStory  {
     
    @Override public Configuration configuration() {
-        return new MostUsefulConfiguration().useStoryControls(new StoryControls().doResetStateBeforeScenario(false));
+        return new MostUsefulConfiguration().usePendingStepStrategy(new FailingUponPendingStep());
     }
  
     @Override public InjectableStepsFactory stepsFactory() {
