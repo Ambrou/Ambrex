@@ -6,18 +6,15 @@
 
 package org.jenkinsci.plugins.Ambrex;
 
-import static java.util.Arrays.asList;
+
 import java.util.List;
 import org.jbehave.core.configuration.Configuration;
 import org.jbehave.core.configuration.MostUsefulConfiguration;
-import org.jbehave.core.embedder.Embedder;
-import static org.jbehave.core.io.CodeLocations.codeLocationFromClass;
+import org.jbehave.core.embedder.StoryControls;
 import org.jbehave.core.io.StoryFinder;
-import org.jbehave.core.io.StoryPathResolver;
 import org.jbehave.core.junit.JUnitStory;
 import org.jbehave.core.steps.InjectableStepsFactory;
 import org.jbehave.core.steps.InstanceStepsFactory;
-import org.junit.Test;
 
 /**
  *
@@ -26,7 +23,7 @@ import org.junit.Test;
 public class CookBaconStory extends JUnitStory  {
     
    @Override public Configuration configuration() {
-        return new MostUsefulConfiguration();
+        return new MostUsefulConfiguration().useStoryControls(new StoryControls().doResetStateBeforeScenario(false));
     }
  
     @Override public InjectableStepsFactory stepsFactory() {

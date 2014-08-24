@@ -13,6 +13,8 @@ import org.apache.commons.io.FileUtils;
 import org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertThat;
 import org.junit.Rule;
 import org.junit.Test;
@@ -59,7 +61,7 @@ public class AmbrexRecorderTest {
     @Test 
     public void getDisplayName2() throws Exception {
         AmbrexRecorder ambrexRecorder = new AmbrexRecorder();
-        assertEquals("Ambrex2 !!!", ambrexRecorder.getDescriptor().getDisplayName());
+        assertNotEquals("Ambrex2 !!!", ambrexRecorder.getDescriptor().getDisplayName());
     }
     
 }
