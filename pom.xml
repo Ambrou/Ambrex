@@ -1,170 +1,94 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.jenkins-ci.plugins</groupId>
+        <artifactId>plugin</artifactId>
+        <version>1.576</version><!-- which version of Jenkins is this plugin built against? Users must have at least this Jenkins version to use this plugin. -->
+    </parent>
+
     <groupId>org.jenkins-ci.plugins</groupId>
-    <artifactId>plugin</artifactId>
-    <version>1.539</version><!-- which version of Jenkins is this plugin built against? Users must have at least this Jenkins version to use this plugin. -->
-  </parent>
+    <artifactId>Ambrex</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>hpi</packaging>
 
-  <groupId>org.jenkins-ci.plugins</groupId>
-  <artifactId>Ambrex</artifactId>
-  <version>1.0-SNAPSHOT</version>
-  <packaging>hpi</packaging>
+    <developers>
+        <developer>
+            <id>ambrou</id>
+            <email>ambroise.petitgenet@gmail.com</email>
+            <name>Ambroise Petitgenet</name>
+        </developer>
+    </developers>
+    
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://opensource.org/licenses/MIT</url>
+        </license>
+    </licenses>
 
-  <licenses>
-    <license>
-      <name>MIT License</name>
-      <url>http://opensource.org/licenses/MIT</url>
-    </license>
-  </licenses>
-
-  <!-- get every artifact through repo.jenkins-ci.org, which proxies all the artifacts that we need -->
-  <repositories>
-    <repository>
-      <id>repo.jenkins-ci.org</id>
-      <url>http://repo.jenkins-ci.org/public/</url>
-    </repository>
-  </repositories>
+    <!-- get every artifact through repo.jenkins-ci.org, which proxies all the artifacts that we need -->
+    <repositories>
+        <repository>
+            <id>repo.jenkins-ci.org</id>
+            <url>http://repo.jenkins-ci.org/public/</url>
+        </repository>
+    </repositories>
+  
+    <pluginRepositories>
+        <pluginRepository>
+            <id>repo.jenkins-ci.org</id>
+            <url>http://repo.jenkins-ci.org/public/</url>
+        </pluginRepository>
+    </pluginRepositories>
   
   
-
-  <pluginRepositories>
-    <pluginRepository>
-      <id>repo.jenkins-ci.org</id>
-      <url>http://repo.jenkins-ci.org/public/</url>
-    </pluginRepository>
-  </pluginRepositories>
-  
+    <scm>
+        <connection>scm:git:git://github.com/Ambrou/ambrex.git</connection>
+        <developerConnection>scm:git:git@github.com:Ambrou/ambrex.git</developerConnection>
+        <url>https://github.com/Ambrou/ambrex.git</url>
+    </scm>
+    
     <dependencies>
-         <dependency>
+        <dependency>
             <groupId>info.cukes</groupId>
-            <artifactId>cucumber-jvm-deps</artifactId>
-            <version>1.0.3</version>
+            <artifactId>cucumber-core</artifactId>
+            <version>1.1.8</version>
             <scope>test</scope>
+            <type>jar</type>
         </dependency>
         <dependency>
             <groupId>info.cukes</groupId>
             <artifactId>cucumber-java</artifactId>
             <version>1.1.8</version>
             <scope>test</scope>
+            <type>jar</type>
         </dependency>
         <dependency>
             <groupId>info.cukes</groupId>
             <artifactId>cucumber-junit</artifactId>
             <version>1.1.8</version>
             <scope>test</scope>
-        </dependency>
-        
-        <dependency>
-            <groupId>org.jbehave</groupId>
-            <artifactId>jbehave-core</artifactId>
-            <version>3.9.3</version>
-            <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.thoughtworks.xstream</groupId>
-                    <artifactId>xstream</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>com.googlecode.java-diff-utils</groupId>
-                    <artifactId>diffutils</artifactId>
-                </exclusion>
-            </exclusions>
+            <type>jar</type>
         </dependency>
         <dependency>
-            <groupId>org.jbehave</groupId>
-            <artifactId>jbehave-maven-plugin</artifactId>
-            <version>3.9.3</version>
-        </dependency>
-        <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>1.2.17</version>
-        </dependency>
-        <!-- <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.11</version>
             <scope>test</scope>
-        </dependency>-->
-        <!-- get every artifact through repo.jenkins-ci.org, which proxies all the artifacts that we need 
-        <dependency>
-            <groupId>info.cukes</groupId>
-            <artifactId>cucumber-core</artifactId>
-            <version>1.1.8</version>
-            <scope>test</scope>
-        </dependency> -->
-         <!-- <dependency>
-            <groupId>info.cukes</groupId>
-            <artifactId>cucumber-html</artifactId>
-            <version>0.2.3</version>
-            <scope>test</scope>
-        </dependency> -->
-         <!-- <dependency>
-            <groupId>info.cukes</groupId>
-            <artifactId>gherkin</artifactId>
-            <version>2.12.2</version>
-            <scope>test</scope>
-        </dependency> -->
-        <!-- <dependency>
-            <groupId>org.kohsuke</groupId>
-            <artifactId>cucumber-annotation-indexer</artifactId>
-            <version>1.2</version>
-        </dependency> -->
-        <!-- 
-        <dependency>
-            <groupId>org.jenkins-ci</groupId>
-            <artifactId>acceptance-test-harness</artifactId>
-            <version>1.10</version>
-            <scope>test</scope>
-        </dependency> 
-       <dependency>
-	<groupId>org.jbehave</groupId>
-	<artifactId>jbehave-core</artifactId>
-	<version>3.9.3</version>
-            <type>jar</type>
         </dependency>
-        <dependency>
-    <groupId>de.codecentric</groupId>
-    <artifactId>jbehave-junit-runner</artifactId>
-    <version>1.1.2</version>
-</dependency>-->
-
-      </dependencies>
-    <!--   
-      <build>
-          <plugins>
-      <plugin>
-    <groupId>org.jbehave</groupId>
-    <artifactId>jbehave-maven-plugin</artifactId>
-    <version>3.9.3</version>
-    <executions>
-        <execution>
-            <id>run-stories-as-embeddables</id>
-            <phase>integration-test</phase>
-            <configuration>
-                <includes>
-                    <include>**/*Stories.java</include>
-                </includes>
-                <metaFilters>
-                    <metaFilter>+author *</metaFilter>
-                    <metaFilter>-skip</metaFilter>
-                </metaFilters>
-                <systemProperties>
-                    <property>
-                      <name>java.awt.headless</name>
-                      <value>true</value>
-                    </property>
-                </systemProperties>
-                <ignoreFailureInStories>true</ignoreFailureInStories>
-                <ignoreFailureInView>false</ignoreFailureInView>
-            </configuration>
-            <goals>
-                <goal>run-stories-as-embeddables</goal>
-            </goals>
-        </execution>
-    </executions>
-</plugin>
-</plugins>
-</build>-->
+    </dependencies>
+    
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>InjectedTest.java</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
