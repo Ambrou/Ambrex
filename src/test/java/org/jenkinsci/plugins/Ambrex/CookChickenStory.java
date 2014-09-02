@@ -12,6 +12,7 @@ import org.jbehave.core.junit.JUnitStory;
 import org.jbehave.core.steps.InjectableStepsFactory;
 import org.jbehave.core.steps.InstanceStepsFactory;
 import org.junit.Rule;
+import org.junit.runner.RunWith;
 import org.jvnet.hudson.test.JenkinsRule;
 
 /**
@@ -20,9 +21,6 @@ import org.jvnet.hudson.test.JenkinsRule;
  */
 public class CookChickenStory extends JUnitStory  {
     
-    
-   @Rule 
-   public JenkinsRule j = new JenkinsRule();
    
    @Override public Configuration configuration() {
         return new MostUsefulConfiguration();

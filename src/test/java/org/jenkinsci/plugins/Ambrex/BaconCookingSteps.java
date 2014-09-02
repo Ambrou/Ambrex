@@ -10,12 +10,18 @@ import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 import static org.junit.Assert.assertEquals;
+import org.junit.Rule;
+import org.jvnet.hudson.test.JenkinsRule;
 
 /**
  *
  * @author apetitgenet
  */
 public class BaconCookingSteps {
+    
+    @Rule 
+    public JenkinsRule j = new JenkinsRule();
+    
     @Given("12 strips of bacon")
     public void howManyStripsOfBacon() {
         System.out.println(">>>> you're making how many pieces of bacon?");
