@@ -13,9 +13,14 @@ import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.jvnet.hudson.test.JenkinsRule;
  
+/**
+ *
+ * @author Mar_B_000
+ */
 @RunWith(Cucumber.class)
 @CucumberOptions(format={"pretty", "html:target/cucumber"})
-public class RunTests {
-    @Rule
+public class RunTest {
+    
+    @Rule 
     public JenkinsRule j = new JenkinsRule();
 }
