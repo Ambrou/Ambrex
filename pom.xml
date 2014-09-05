@@ -88,14 +88,10 @@
                         <id>run-stories-as-embeddables</id>
                         <phase>integration-test</phase>
                         <configuration>
-                            <sourceDirectory>src/test/java</sourceDirectory>
+                            <scope>test</scope>
                             <includes>
                                 <include>**/*Story.java</include>
                             </includes>
-                            <metaFilters>
-                                <metaFilter>+author *</metaFilter>
-                                <metaFilter>-skip</metaFilter>
-                            </metaFilters>
                             <systemProperties>
                                 <property>
                                     <name>java.awt.headless</name>
