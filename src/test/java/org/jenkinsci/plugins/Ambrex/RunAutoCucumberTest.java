@@ -3,24 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package org.jenkinsci.plugins.Ambrex;
-
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
-import org.junit.Rule;
 import org.junit.runner.RunWith;
-import org.jvnet.hudson.test.JenkinsRule;
- 
+
 /**
  *
  * @author Mar_B_000
  */
 @RunWith(Cucumber.class)
 @CucumberOptions(format={"pretty", "html:target/cucumber"})
-public class RunTest {
-    
-    @Rule 
-    public JenkinsRule j = new JenkinsRule();
+public class RunAutoCucumberTest {
+
 }

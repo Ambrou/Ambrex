@@ -24,13 +24,13 @@ import org.jvnet.hudson.test.JenkinsRule;
  * @author Mar_B_000
  */
 
-public class CucumberRunnerManual {
+public class CucumberRunnerManualTest {
     
     
     @Rule 
     public JenkinsRule j = new JenkinsRule();
     
-    public CucumberRunnerManual() {
+    public CucumberRunnerManualTest() {
     }
     
     @BeforeClass
