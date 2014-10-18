@@ -22,7 +22,7 @@ import org.jvnet.hudson.test.JenkinsRule;
 public class AmbrexRecorderUnitTest {
     
     @Rule 
-    public JenkinsRule j = new JenkinsRule();
+    public JenkinsRule j = new MyJenkinsRule();
    
     @Test 
     public void getDisplayName() throws Exception {
