@@ -12,11 +12,6 @@ import hudson.tasks.Publisher;
 import net.sf.json.JSONObject;
 import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.StaplerRequest;
-import org.kohsuke.stapler.QueryParameter;
-
-import javax.servlet.ServletException;
-import java.io.IOException;
-
 /**
  * Sample {@link Recorder}.
  *
@@ -44,6 +39,7 @@ public class AmbrexRecorder extends Recorder {
 
     /**
      * We'll use this from the <tt>config.jelly</tt>.
+     * @return 
      */
     /*public String getName() {
         return name;
@@ -104,6 +100,7 @@ public class AmbrexRecorder extends Recorder {
         /**
          * Performs on-the-fly validation of the form field 'name'.
          *
+         * @param aClass
          * @param value
          *      This parameter receives the value that the user has typed.
          * @return
@@ -130,6 +127,7 @@ public class AmbrexRecorder extends Recorder {
 
         /**
          * This human readable name is used in the configuration screen.
+         * @return 
          */
         public String getDisplayName() {
             return "Ambrex !!!";
