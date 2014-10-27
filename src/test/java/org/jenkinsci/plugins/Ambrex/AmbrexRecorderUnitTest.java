@@ -22,17 +22,17 @@ import org.jvnet.hudson.test.JenkinsRule;
 public class AmbrexRecorderUnitTest {
     
     @Rule 
-    public JenkinsRule j = new MyJenkinsRule();
+    public JenkinsRule j = new JenkinsRule();
    
     @Test 
     public void getDisplayName() throws Exception {
-        AmbrexRecorder ambrexRecorder = new AmbrexRecorder();
+        AmbrexRecorderService ambrexRecorder = new AmbrexRecorderService();
         assertEquals("Ambrex !!!", ambrexRecorder.getDescriptor().getDisplayName());
     }
     
     @Test 
     public void getDisplayName2() throws Exception {
-        AmbrexRecorder ambrexRecorder = new AmbrexRecorder();
+        AmbrexRecorderService ambrexRecorder = new AmbrexRecorderService();
         assertNotEquals("Ambrex2 !!!", ambrexRecorder.getDescriptor().getDisplayName());
     }
     

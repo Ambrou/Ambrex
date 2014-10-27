@@ -10,6 +10,7 @@ import hudson.tasks.BuildStepDescriptor;
 import hudson.tasks.BuildStepMonitor;
 import hudson.tasks.Publisher;
 import net.sf.json.JSONObject;
+
 import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.StaplerRequest;
 /**
@@ -18,7 +19,7 @@ import org.kohsuke.stapler.StaplerRequest;
  * <p>
  * When the user configures the project and enables this builder,
  * {@link DescriptorImpl#newInstance(StaplerRequest)} is invoked
- * and a new {@link AmbrexRecorder} is created. The created
+ * and a new {@link AmbrexRecorderService} is created. The created
  * instance is persisted to the project configuration XML by using
  * XStream, so this allows you to use instance fields (like {@link #name})
  * to remember the configuration.
@@ -29,12 +30,12 @@ import org.kohsuke.stapler.StaplerRequest;
  *
  * @author Kohsuke Kawaguchi
  */
-public class AmbrexRecorder extends Recorder {
+public class AmbrexRecorderService extends Recorder {
 
 
     // Fields in config.jelly must match the parameter names in the "DataBoundConstructor"
     @DataBoundConstructor
-    public AmbrexRecorder() {
+    public AmbrexRecorderService() {
     }
 
     /**
@@ -69,9 +70,13 @@ public class AmbrexRecorder extends Recorder {
     public DescriptorImpl getDescriptor() {
         return (DescriptorImpl)super.getDescriptor();
     }
+    
+    private static String getDisplayName() {
+		return "Ambrex !!!";
+	}
 
     /**
-     * Descriptor for {@link AmbrexRecorder}. Used as a singleton.
+     * Descriptor for {@link AmbrexRecorderService}. Used as a singleton.
      * The class is marked as public so that it can be accessed from views.
      *
      * <p>
@@ -130,7 +135,7 @@ public class AmbrexRecorder extends Recorder {
          * @return 
          */
         public String getDisplayName() {
-            return "Ambrex !!!";
+            return AmbrexRecorderService.getDisplayName();
         }
 
         @Override

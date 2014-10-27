@@ -67,14 +67,14 @@ public class DepositStepDefinitions {
     @When("^(\\d+) is deposited in to the account Jenkins OK$")
     public void is_deposited_in_to_the_account_Jenkins_OK(int arg1) throws Throwable {
         // Write code here that turns the phrase above into concrete actions
-        AmbrexRecorder ambrexRecorder = new AmbrexRecorder();
+        AmbrexRecorderService ambrexRecorder = new AmbrexRecorderService();
         assertEquals("Ambrex !!!", ambrexRecorder.getDescriptor().getDisplayName());
     }
 
     @When("^(\\d+) is deposited in to the account Jenkins Error$")
     public void is_deposited_in_to_the_account_Jenkins_Error(int arg1) throws Throwable {
         // Write code here that turns the phrase above into concrete actions
-        AmbrexRecorder ambrexRecorder = new AmbrexRecorder();
+        AmbrexRecorderService ambrexRecorder = new AmbrexRecorderService();
         assertEquals("Ambrex2 !!!", ambrexRecorder.getDescriptor().getDisplayName());
     }
 

@@ -6,18 +6,10 @@
         <version>1.577</version><!-- which version of Jenkins is this plugin built against? Users must have at least this Jenkins version to use this plugin. -->
     </parent>
 
-    <groupId>org.jenkins-ci.plugins</groupId>
     <artifactId>Ambrex</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>hpi</packaging>
 
-    <developers>
-        <developer>
-            <id>ambrou</id>
-            <email>ambroise.petitgenet@gmail.com</email>
-            <name>Ambroise Petitgenet</name>
-        </developer>
-    </developers>
     
     <licenses>
         <license>
