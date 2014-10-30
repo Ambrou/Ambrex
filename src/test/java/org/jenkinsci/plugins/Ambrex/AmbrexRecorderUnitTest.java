@@ -10,30 +10,20 @@ package org.jenkinsci.plugins.Ambrex;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
-import org.junit.Rule;
 import org.junit.Test;
-import org.jvnet.hudson.test.JenkinsRule;
-
-/**
- *
- * @author apetitgenet
- */
 
 public class AmbrexRecorderUnitTest {
-    
-    @Rule 
-    public JenkinsRule j = new JenkinsRule();
-   
+     
     @Test 
     public void getDisplayName() throws Exception {
-        AmbrexRecorderService ambrexRecorder = new AmbrexRecorderService();
-        assertEquals("Ambrex !!!", ambrexRecorder.getDescriptor().getDisplayName());
+    	AmbrexRecorder ambrexRecorder = new AmbrexRecorder();
+        assertEquals("Ambrex !!!", ambrexRecorder.getName());
     }
     
     @Test 
     public void getDisplayName2() throws Exception {
-        AmbrexRecorderService ambrexRecorder = new AmbrexRecorderService();
-        assertNotEquals("Ambrex2 !!!", ambrexRecorder.getDescriptor().getDisplayName());
+    	AmbrexRecorder ambrexRecorder = new AmbrexRecorder();
+        assertNotEquals("Ambrex2 !!!", ambrexRecorder.getName());
     }
     
 }

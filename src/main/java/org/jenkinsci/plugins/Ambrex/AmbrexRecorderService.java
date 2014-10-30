@@ -32,7 +32,8 @@ import org.kohsuke.stapler.StaplerRequest;
  */
 public class AmbrexRecorderService extends Recorder {
 
-
+	private static AmbrexRecorder ambrexRecorder = new AmbrexRecorder();
+	
     // Fields in config.jelly must match the parameter names in the "DataBoundConstructor"
     @DataBoundConstructor
     public AmbrexRecorderService() {
@@ -47,11 +48,12 @@ public class AmbrexRecorderService extends Recorder {
     }*/
     
     public BuildStepMonitor getRequiredMonitorService() {
-        return BuildStepMonitor.BUILD;
+    	return ambrexRecorder.getRequiredMonitorService();
+        //return BuildStepMonitor.BUILD;
     }
 
     @Override
-    public boolean perform(AbstractBuild build, Launcher launcher, BuildListener listener) {
+    public boolean perform(AbstractBuild<?, ?> build, Launcher launcher, BuildListener listener) {
         // This is where you 'build' the project.
         // Since this is a dummy, we just say 'hello world' and call that a build.
 
@@ -60,7 +62,7 @@ public class AmbrexRecorderService extends Recorder {
             listener.getLogger().println("Bonjour, "+name+"!");
         else
             listener.getLogger().println("Hello, "+name+"!");*/
-        return true;
+        return ambrexRecorder.perform(build, launcher, listener);
     }
 
     // Overridden for better type safety.
@@ -72,7 +74,7 @@ public class AmbrexRecorderService extends Recorder {
     }
     
     private static String getDisplayName() {
-		return "Ambrex !!!";
+		return ambrexRecorder.getName();
 	}
 
     /**
@@ -84,7 +86,7 @@ public class AmbrexRecorderService extends Recorder {
      * for the actual HTML fragment for the configuration screen.
      */
     @Extension // This indicates to Jenkins that this is an implementation of an extension point.
-    public static final class DescriptorImpl extends BuildStepDescriptor<Publisher> {
+    public final class DescriptorImpl extends BuildStepDescriptor<Publisher> {
         /**
          * To persist global configuration information,
          * simply store it in a field and call save().
