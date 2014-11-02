@@ -71,8 +71,7 @@ public class AmbrexRecorder {
 			String amontListStringRequirement = temp.get(1);
 			String[] t = amontListStringRequirement.split(" ");
 			for(int iLoop = 0; iLoop < t.length; ++iLoop){
-				if(amontRequirement.contains(t[iLoop]) == false)
-				{
+				if(amontRequirement.contains(t[iLoop]) == false){
 					coverageSucced = false;
 				}
 			}
