@@ -1,0 +1,34 @@
+REQUIREMENTS EXTRACTION (RQ-FRT)
+Document-Source: P:\Trixell_TMA\16 - Exigences\AGEX_VIT\docs\CDS-003896-00J Specifications Fonctionnelles VIT.docm
+Document-Name: CDS-003896-00J Specifications Fonctionnelles VIT.docm [filtre=ESG]
+Extracted-By: apetitgenet with agexWordMacros (Astek-RhA) 20090303 + apetitgenet/GNB-DT-005 with agexSplitReqs (Astek-RhA) 20090423 [filter=ESG]
+Date-Time: 31/10/2014 - 14:59:03 + 2014/10/31-14:59
+@=@=@REQUIREMENT@=@=@
+ReqID= ESG-001
+TITRE= Brancher VIT sur la partie � Map � de la configuration de la librairie IO_Image (IO_Image_Configuration) [p.11]
+VER= 00
+Exigence(s)-Amont= TRI 6_13_0066_Chapitre_3_1_1 (T)
+Cat�gorie= Interop�rabilit�
+Criticit�= Important
+Impact= Moyen
+Stabilit�= ImportanteMoyenne
+V�rif.= 
+TEXTE=  Les fichiers Map_LXXXX.txt contiennent une description de zones rectangulaires et une liste de ces zones. Chaque zone est d�crite dans une section par 7 propri�t�s (affichage, left, top, right, bottom, direction, champs_dialog). La liste des zones est symbolis�e par la variable ListOfMappingType de la section [Globals].  Cette fonctionnalit� �tant cruciale dans le logiciel et vraisemblablement rest�e sur un codage en dur � cause de ses ramifications, je voudrais en faire l�objet d�une revue d�architecture et/ou de conception.  On entend par ��Brancher VIT��, le fait d�utiliser les zones d�crites dans fichiers Map, d�une part pour cr�er dans la classe ContrasteMethod, des fonctions de mesure du contraste qui ne d�pendent pas d�un produit particulier, mais qui s�adaptent dynamiquement au type de produit inspect�. On obtiendra ainsi des fonctions g�n�riques vis � vis des produits.  D�autre part, comme il existe historiquement un jeu de fonctions faisant r�f�rence � des produits particuliers, comme des fonctions sont utilis�es dans les configurations de VIT et que revoir ces configurations n�aurait pas de valeur ajout�e, ces fonctions ne pourront pas �tre nomm�ment supprim�es, mais devront �tre recod�es pour faire appel aux fonctions g�n�riques. Ce recodage permettra de faire une comparaison ��avant~apr�s�� utile � la validation du recodage.   Dans la classe CContrastMethod il y a autant de m�thode LSBColumnForXXXXContrast  LSBDemiPanneauForXXXXContrast  LSBLineForXXXXContrast  LSBMapixForXXXXContrast  LSBThalassaForXXXXContrast  PercentColumnForXXXXContrast  PercentLineForXXXXContrast  PercentMapixForXXXXContrast  PercentStdDevNoisyColumnForXXXXContrast PercentStdDevNoisyMapixForXXXXContrast La demande consiste � cr�er des fonctions �quivalentes g�n�riques qui utiliseront les informations des d�tecteurs d�crites dans les fichiers Map_LXXXX.txt. Ces informations sont r�cup�rables via la librairie IO_Image. Le viewer de dev le fait d�j�, on pourra donc se baser sur ce fonctionnement. Cette �volution fera l�objet d�une revue de conception avec Trixell.
+Commentaire(s)= 
+Statut= A valider
+Date-Statut= 18/04/2014
+@=@=@REQUIREMENT@=@=@
+ReqID= ESG-002
+TITRE= Tableau des mesures [p.13]
+VER= 00
+Exigence(s)-Amont= TRI 6_13_0066_Chapitre_3_1_2_2_Tableau_des_mesures (T)
+Cat�gorie= Conformit�
+Criticit�= Important
+Impact= Faible
+Stabilit�= MoyenneImportante
+V�rif.= Test
+TEXTE=  Actuellement la m�thode de g�n�ration du rapport FT_5100_method1 remplit toutes les cases de la partie du tableau figur�e en bleu dans l�exemple ci-dessous (contraste=f(d�faut, image)).   Defect Type  Localization  Size  m1g0-10OF0nGy_8fps-Oc  m1g7-1WM30uGy_60ms_exp_DN2-OcGcDc  m1g0-1WM200nGy_7ms-OcGcDc  m1g0-DM  m1g7-1WM8800nGy_60ms_exp_DN9-OcGcDc  m1g7-1WM45uGy_70ms-OcGcDc  m1g7-1WMRL-Oc  m1g0-1OM0nGy_8fps    CouplingDefect  622 , 1666  63 (()  -2687.3 %  0.9 %  6.4 %  0.0 %  -1.2 %  0.0 %  -5.5 %  43.8 %    Bright Spot  2203 , 102  4 (()  0.0 %  0.0 %  0.0 %    1  0.0 %  0.6 %  -19.5 %  21.5 %     Le besoin est d�avoir une autre m�thode de g�n�ration qui ne remplit que les cases correspondant � l�image dans laquelle on vient prendre les mesures (surface, taille, contraste,...) pour alimenter la r�gle d��ligibilit� du d�faut au rapport (rappel�: ces r�gles sont situ�es dans le fichier en g�n�ral nomm� VIT_Report1.cfg). Comme dans ces r�gles une seule image n�est r�f�ren�able par type de d�faut, il n�y aurait qu�une case contenant une valeur de contraste par ligne de d�faut du rapport. Ce qui donnera�:  Defect Type  Localization  Size  m1g0-10OF0nGy_8fps-Oc  m1g7-1WM30uGy_60ms_exp_DN2-OcGcDc  m1g0-1WM200nGy_7ms-OcGcDc  m1g0-DM  m1g7-1WM8800nGy_60ms_exp_DN9-OcGcDc  m1g7-1WM45uGy_70ms-OcGcDc  m1g7-1WMRL-Oc  m1g0-1OM0nGy_8fps    CouplingDefect  622 , 1666  63 (()              -5.5 %      Bright Spot  2203 , 102  4 (()            0.6 %         La fonction � CReportGenerator::WriteDefaultsTable � sera modifi�e avec un nouveau param�tre qui indiquera si toutes les cases  seront  remplies  ou  non. Ainsi  seule  la  m�thode  �FT_5100_method1 �  ferait  appel  � � WriteDefaultsTable �  en pr�cisant que toutes les cases sauf une  ne doivent pas �tre remplies. Les autres m�thodes ne seront pas impact�es par l��volution. De plus, on ne cr�e pas de nouvelles fonctions pour ne pas dupliquer inutilement du code.
+Commentaire(s)= 
+Statut= A valider
+Date-Statut= 18/04/2014
+@=@=@REQUIREMENT@=@=@
