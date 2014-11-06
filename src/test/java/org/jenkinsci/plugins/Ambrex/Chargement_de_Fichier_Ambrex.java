@@ -4,7 +4,6 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.List;
 
-import cucumber.api.DataTable;
 import cucumber.api.PendingException;
 import cucumber.api.java.fr.Alors;
 import cucumber.api.java.fr.Quand;
@@ -35,24 +34,18 @@ public class Chargement_de_Fichier_Ambrex {
 	@Soit("^le fichier ESD\\.agex contenant les exigences avales$")
 	public void le_fichier_ESD_agex_contenant_les_exigences_avales()
 			throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		ambrexRecorder.setAvalFile("ESD.agex");
 	}
 
 	@Quand("^je charge le fichier d'exigence aval en mémoire$")
 	public void je_charge_le_fichier_d_exigence_aval_en_mémoire()
 			throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		ambrexRecorder.loadAvalRequirement();
 	}
 
 	@Alors("^la liste des exigences avales est:$")
-	public void la_liste_des_exigences_avales_est(DataTable arg1)
+	public void la_liste_des_exigences_avales_est(List<List<String>> arg1)
 			throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		// For automatic transformation, change DataTable to one of
-		// List<YourType>, List<List<E>>, List<Map<K,V>> or Map<K,V>.
-		// E,K,V must be a scalar (String, Integer, Date, enum etc)
-		throw new PendingException();
+		assertEquals(arg1, ambrexRecorder.getAval());
 	}
 }

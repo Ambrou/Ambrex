@@ -17,6 +17,7 @@ public class AmbrexRecorder {
 	private List<List<String>> avalRequirement;
 	private boolean coverageSucced;
 	private String amontRequirementFile;
+	private String avalRequirementFile;
 	
 	public AmbrexRecorder(){
 		coverageSucced = true;
@@ -54,7 +55,7 @@ public class AmbrexRecorder {
 	}
 
 	private void checkCoverageUpToDown() {
-		for(String temp : amontRequirement){
+		for(String temp : getAmont()){
 			boolean bFound = false;
 			for (List<String> temp2 : avalRequirement) {
 				String amontListStringRequirement = temp2.get(1);
@@ -77,7 +78,7 @@ public class AmbrexRecorder {
 			String amontListStringRequirement = temp.get(1);
 			String[] t = amontListStringRequirement.split(" ");
 			for(int iLoop = 0; iLoop < t.length; ++iLoop){
-				if(amontRequirement.contains(t[iLoop]) == false){
+				if(getAmont().contains(t[iLoop]) == false){
 					coverageSucced = false;
 				}
 			}
@@ -100,7 +101,7 @@ public class AmbrexRecorder {
 				String line;
 				while ((line = fichier.readLine()) != null) {
 					if(line.startsWith("ReqID= ")){
-						amontRequirement.add(line.substring(line.indexOf(" ") + 1));
+						getAmont().add(line.substring(line.indexOf(" ") + 1));
 					}
 				}
 			} finally {
@@ -109,5 +110,17 @@ public class AmbrexRecorder {
 		} catch (IOException ioe){
 			System.out.println("Erreur --" + ioe.toString());
 		}
+	}
+
+	public void setAvalFile(String string) {
+		avalRequirementFile = string;
+	}
+	
+	public void loadAvalRequirement() {
+		
+	}
+
+	public List<List<String>> getAval() {
+		return avalRequirement;
 	}
 }
