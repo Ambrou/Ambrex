@@ -1,5 +1,9 @@
 package org.jenkinsci.plugins.Ambrex;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import hudson.Launcher;
@@ -9,12 +13,14 @@ import hudson.tasks.BuildStepMonitor;
 
 public class AmbrexRecorder {
 	
-	List<String> amontRequirement;
-	List<List<String>> avalRequirement;
+	private List<String> amontRequirement;
+	private List<List<String>> avalRequirement;
 	private boolean coverageSucced;
+	private String amontRequirementFile;
 	
 	public AmbrexRecorder(){
 		coverageSucced = true;
+		amontRequirement = new ArrayList<String>();
 	}
 	
 	public String getName() {
@@ -75,6 +81,33 @@ public class AmbrexRecorder {
 					coverageSucced = false;
 				}
 			}
+		}
+	}
+
+	public List<String> getAmont() {
+		return amontRequirement;
+	}
+
+	public void setAmontFile(final String amontRequirementFile) {
+		this.amontRequirementFile = amontRequirementFile;
+	}
+
+	public void loadAmontRequirement() {
+		try{
+			BufferedReader fichier = new BufferedReader(new FileReader(System.getProperty("user.dir") + "\\src\\test\\resources\\org\\jenkinsci\\plugins\\Ambrex\\" + amontRequirementFile));
+			try
+			{
+				String line;
+				while ((line = fichier.readLine()) != null) {
+					if(line.startsWith("ReqID= ")){
+						amontRequirement.add(line.substring(line.indexOf(" ") + 1));
+					}
+				}
+			} finally {
+				fichier.close();
+			}
+		} catch (IOException ioe){
+			System.out.println("Erreur --" + ioe.toString());
 		}
 	}
 }

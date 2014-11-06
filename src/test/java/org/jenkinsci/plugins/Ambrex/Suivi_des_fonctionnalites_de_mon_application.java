@@ -17,7 +17,7 @@ public class Suivi_des_fonctionnalites_de_mon_application {
 	}
 
 	@Soit("^les exigences avals:$")
-	public void les_exigences_avals(List<List<String>> AvalRequirement) throws Throwable {
+	public void les_exigences_avals(final List<List<String>> AvalRequirement) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 	    // For automatic transformation, change DataTable to one of
 	    // List<YourType>, List<List<E>>, List<Map<K,V>> or Map<K,V>.
