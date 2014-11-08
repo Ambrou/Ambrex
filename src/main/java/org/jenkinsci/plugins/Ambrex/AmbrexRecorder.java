@@ -22,6 +22,7 @@ public class AmbrexRecorder {
 	public AmbrexRecorder(){
 		coverageSucced = true;
 		amontRequirement = new ArrayList<String>();
+		avalRequirement = new ArrayList<List<String>>();
 	}
 	
 	public String getName() {
@@ -117,7 +118,50 @@ public class AmbrexRecorder {
 	}
 	
 	public void loadAvalRequirement() {
-		
+		try{
+			BufferedReader fichier = new BufferedReader(new FileReader(System.getProperty("user.dir") + "\\src\\test\\resources\\org\\jenkinsci\\plugins\\Ambrex\\" + avalRequirementFile));
+			try
+			{
+				String line;
+				String requirementAval = null;
+				String requirementAmont = null;
+				String strRequirementAmontToAdd = null;
+				while ((line = fichier.readLine()) != null) {
+					if(line.startsWith("ReqID= ")){
+						requirementAval = line.substring(line.indexOf(" ") + 1);
+					}
+					if(line.startsWith("Exigence(s)-Amont= ")){
+						requirementAmont = line.substring(line.indexOf(" ") + 1);
+					}
+					if(requirementAval != null && requirementAmont != null)
+					{
+						strRequirementAmontToAdd = new String();
+						System.out.println(requirementAval + " " + requirementAmont);
+						List<String> lineRequirement = new ArrayList<String>();
+						lineRequirement.add(requirementAval);
+						String str[] = requirementAmont.split(" ");
+						;
+						for(int iLoop = 0; iLoop < str.length; ++iLoop){
+							if(str[iLoop].startsWith("(") == false){
+								if(iLoop != 0)
+								{
+									strRequirementAmontToAdd += " ";
+								}
+								strRequirementAmontToAdd += str[iLoop]; 
+							}
+						}
+						lineRequirement.add(strRequirementAmontToAdd);
+						getAval().add(lineRequirement);
+						requirementAval = null;
+						requirementAmont = null;
+					}
+				}
+			} finally {
+				fichier.close();
+			}
+		} catch (IOException ioe){
+			System.out.println("Erreur --" + ioe.toString());
+		}
 	}
 
 	public List<List<String>> getAval() {
