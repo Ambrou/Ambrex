@@ -1,6 +1,6 @@
 # language: fr
 
-Fonctionnalité: Suivi des fonctionnalités de mon application
+Fonctionnalité: Configuration du plugin
 
 
 En tant qu' utilisateur du plugin Ambrex
